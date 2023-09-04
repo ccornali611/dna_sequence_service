@@ -1,0 +1,11 @@
+{
+    "id": "seq_asQya4lk",
+    "bases": "GATTACA",
+    "name": "My Sequence",
+    "createdAt": "2017-04-20T18:11:56.283088+00:00",
+    "creator": {
+      "handle": "lpasteur",
+      "id": "ent_jDKampO5",
+      "name": "Louis Pasteur"
+  }
+}
