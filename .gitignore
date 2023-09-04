@@ -1,0 +1,7 @@
+tmp/
+.vscode/
+.env
+.venv
+__pycache__
+app/elastic_search/config/config.ini
+*.log 
