@@ -1,5 +1,6 @@
 import logging
 from typing import List
+from time import sleep
 
 import uvicorn
 from fastapi import Depends, FastAPI, Request
@@ -10,6 +11,7 @@ from .elastic_search.client import ElasticSearchClient
 
 async def on_startup() -> None:
     logging.info('on_startup')
+    sleep(3)
     app.state.es_client =  ElasticSearchClient()
     await app.state.es_client.initialize_es(populate=True)
 
