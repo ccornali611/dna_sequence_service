@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  dan_sequence_app:
+    build: .
+    container_name: dna-sequence-service-app
+    ports:
+      - 8000:80
+    depends_on:
+      - elasticsearch
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+    container_name: es-dna-sequence
+    ports:
+      - 9200:9200
+      - 9301:9300
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - cluster.name=dna-sequence-service
+      - network.host=0.0.0.0
+      - transport.host=127.0.0.1
+      - discovery.zen.minimum_master_nodes=1
+      - 'ES_JAVA_OPTS=-Xms512m -Xmx512m'
+      # uncomment if you are on production
+      - xpack.security.enabled=false
